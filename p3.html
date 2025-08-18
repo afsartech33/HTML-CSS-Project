@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background color</title>
+</head>
+<body>
+    <button id="btn">Change colors</button><br><br>
+    <input type="text" id="input" placeholder="Enter your name">
+    <h2 id="preview"></h2>
+    <button id="inc"> + </button>
+    <span id="count"> 0 </span>
+    <button id="dec"> - </button>
+</body>
+<script>
+    document.getElementById("btn").addEventListener("click",function(){
+        document.body.style.backgroundColor=
+        "#"+Math.floor(Math.random()*16777215).toString(16);
+    });
+    document.getElementById("input").addEventListener("input",function(){
+        document.getElementById("preview").innerText=this.value;
+    });
+    let count = 0;
+    document.getElementById("inc").addEventListener("click",function(){
+        count++;
+        document.getElementById("count").innerText=count;
+            
+    });
+    document.getElementById("dec").addEventListener("click",function(){
+        count--;
+        document.getElementById("count").innerText=count;
+    });
+</script>
+</html>
