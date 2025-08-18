@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Event</title>
+</head>
+<body onload="pageloaded()">
+    <h1>Javascript Event Handling</h1>
+    <h2>1.onclick Events</h2>
+    <button onclick="clicked()">Click</button>
+
+    <h2>2.onmouseover & onmouseout</h2>
+    <div id="hover"
+    onmouseover="hoverIn()"
+    onmouseout="hoverOut()">Hover</div>
+
+    <h2>3.onchange Event</h2>
+    <select id="colorselect" onchange="changecolor()">
+        <option value="">select a color</option>
+        <option value="lightgreen">Green</option>
+        <option value="lightblue">Blue</option>
+        <option value="Orange">Orange</option>
+    </select>
+
+    <h2>4.onsubmit Event</h2>
+    <form id="form" onsubmit="return validateform()">
+        <input type="text" name="name" id="name" placeholder="Enter your Name">
+        <button type="submit">Submit</button>
+
+    </form>
+</body>
+<script>
+    function pageloaded(){
+        alert('Page loaded successfully');
+    }
+    function clicked(){
+        alert("Button  clicked");
+    }
+    function hoverIn(){
+        document.getElementById("hover").style.backgroundColor ="Orange";
+        document.getElementById("hover").innerText ="Hover Over";
+    }
+    function hoverOut(){
+       document.getElementById("hover").style.backgroundColor ="red";
+        document.getElementById("hover").innerText ="Hover Out";   
+    }
+    function changecolor(){
+        let color = document.getElementById("colorselect").value;
+        if(color){
+            document.body.style.backgroundColor = color;
+        }
+    }
+    
+</script>
+</html>
