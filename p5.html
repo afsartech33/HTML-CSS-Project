@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Showroom</title>
+    <style>
+     * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        scroll-behavior: smooth;
+    }
+    nav {
+        background-color: #222;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+    }
+    nav a {
+        color: white;
+        font-family: Georgia, 'Times New Roman', Times, serif, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        margin: 0 15px;
+    }
+    nav a:hover {
+        color: #ff6347;
+    }
+    section {
+        padding: 80px 20px;
+    }
+    #home {
+        background: url('suzuki 3.jpeg') no-repeat center center/cover;
+        height: 100vh;
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #bike-specs {
+        background-color: #f4f4f4;
+    }
+    .bike-card {
+        display: inline-block;
+        gap: 10px;
+        margin: 10px;
+        padding: 10px;
+        width: 200px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .bike-img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    #contact {
+        background-color: #eee;
+    }
+    form {
+        background: white;
+        padding: 20px;
+        max-width: 400px;
+        margin: auto;
+        border-radius: 10px;
+    }
+    input, textarea, button {
+        width: 100%;
+        padding: 20px;
+        margin: 5px 0;
+    }
+    button {
+        background-color: #222;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #ff6347;
+    }
+    #thankyou {
+        text-align: center;
+        padding: 50px;
+        display: none;
+    }
+    #available-bikes {
+        padding: 40px;
+        background: #f8f9f8;
+    }
+    #available-bikes h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    #searchbox {
+        margin-bottom: 20px;
+        padding: 10px;
+        width: 250px;
+        border: 1px solid #ccc;
+    }
+    #bike-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    .bike-card {
+        border: 1px solid #ccc;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        background: white;
+    }
+    .bike-card img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+    }
+    #no-results-message {
+        text-align: center;
+        margin-top: 20px;
+        color: red;
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#available-bikes">About</a>
+        <a href="#bike-specs">Specifications</a>
+        <a href="#videos">Videos</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+        <h1>Welcome to Our Bike Showroom</h1>
+        <p>Explore our latest models and find your perfect ride!</p>
+    </section>
+
+    <section id="bike-specs">
+        <h2>Bikes Collections</h2>
+        <div class="bikes">
+            <div class="bike-card" data-name="duke">
+                <img src="bike 1.jpeg" alt="Bike1" class="bike-img">
+                <h3>Duke</h3>
+                <p>Rs.1,50,000</p>
+                <button onclick="addtocart('duke')">Add To Cart</button>
+            </div>
+            <div class="bike-card" data-name="kawaziki">
+                <img src="kawaziki 4.jpeg" alt="Bike2" class="bike-img">
+                <h3>Kawaziki</h3>
+                <p>Rs. 3,00,000</p>
+                <button onclick="addtocart('kawaziki')">Add To Cart</button>
+            </div>
+            <div class="bike-card" data-name="ns 200">
+                <img src="ns 200.jpeg" alt="Bike3" class="bike-img">
+                <h3>NS 200</h3>
+                <p>Rs.3,10,000</p>
+                <button onclick="addtocart('ns 200')">Add To Cart</button>
+            </div>
+            <div class="bike-card" data-name="r15">
+                <img src="r15 5.jpeg" alt="Bike4" class="bike-img">
+                <h3>R15</h3>
+                <p>Rs.3,50,000</p>
+                <button onclick="addtocart('r15')">Add To Cart</button>
+            </div>
+            <div class="bike-card" data-name="rc 200">
+                <img src="rc 200.jpeg" alt="Bike5" class="bike-img">
+                <h3>RC 200</h3>
+                <p>Rs.20,00,000</p>
+                <button onclick="addtocart('rc 200')">Add To Cart</button>
+            </div>
+            <div class="bike-card" data-name="suzuki">
+                <img src="suzuki 3.jpeg" alt="Bike6" class="bike-img">
+                <h3>Suzuki</h3>
+                <p>Rs.30,00,000</p>
+                <button onclick="addtocart('suzuki')">Add To Cart</button>
+            </div>
+        </div>
+        <h3 id="cart-items">Cart: Empty</h3> 
+    </section>
+
+    <section id="available-bikes">
+        <h2>Available Bikes</h2>
+        <div>
+            <input type="text" id="search" placeholder="Search for bikes...">
+        </div>
+        <div id="bike-list">
+            <div class="bike-card" data-name="duke">
+                <img src="bike 1.jpeg" alt="Bike1">
+                <h3>Duke</h3>
+                <p>Rs.1,50,000</p>
+            </div>
+            <div class="bike-card" data-name="kawaziki">
+                <img src="kawaziki 4.jpeg" alt="Bike2">
+                <h3>Kawaziki</h3>
+                <p>Rs. 3,00,000</p>
+            </div>
+            <div class="bike-card" data-name="ns 200">
+                <img src="ns 200.jpeg" alt="Bike3">
+                <h3>NS 200</h3>
+                <p>Rs.3,10,000</p>
+            </div>
+            <div class="bike-card" data-name="r15">
+                <img src="r15 5.jpeg" alt="Bike4">
+                <h3>R15</h3>
+                <p>Rs.3,50,000</p>
+            </div>
+            <div class="bike-card" data-name="rc 200">
+                <img src="rc 200.jpeg" alt="Bike5">
+                <h3>RC 200</h3>
+                <p>Rs.20,00,000</p>
+            </div>
+            <div class="bike-card" data-name="suzuki">
+                <img src="suzuki 3.jpeg" alt="Bike6">
+                <h3>Suzuki</h3>
+                <p>Rs.30,00,000</p>
+            </div>
+        </div>
+        <div id="no-results-message">No bikes found. Try a different search.</div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form action="" id="contactform">
+            <input type="text" id="name" placeholder="Enter Name">
+            <input type="email" id="email" placeholder="Enter Email">
+            <input type="text" id="phone" placeholder="Enter Your Phone Number">
+            <textarea id="message" placeholder="Enter Your Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <div id="thankyou">
+        <h2>Thank You for Visiting Our Showroom!</h2>
+        <p>We hope you found the perfect bike. For more information, feel free to contact us.</p>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addtocart(bikeName) {
+            if (!cart.includes(bikeName)) {
+                cart.push(bikeName);
+            }
+            document.getElementById("cart-items").innerText = "Cart: " + cart.join(", ");
+        }
+
+        document.getElementById("search").addEventListener("keyup", function() {
+            let filter = this.value.toLowerCase();
+            let bikes = document.querySelectorAll(".bike-card");
+            let noResults = true;
+
+            bikes.forEach(bike => {
+                let bikeName = bike.getAttribute("data-name").toLowerCase();
+                if (bikeName.includes(filter)) {
+                    bike.style.display = "block";
+                    noResults = false;
+                } else {
+                    bike.style.display = "none";
+                }
+            });
+
+            const message = document.getElementById("no-results-message");
+            if (noResults) {
+                message.style.display = "block";
+            } else {
+                message.style.display = "none";
+            }
+        });
+
+        document.getElementById("contactform").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let message = document.getElementById("message").value.trim();
+
+            if (name === "" || email === "" || phone === "" || message === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+            if (!email.includes("@")) {
+                alert("Please enter a valid email address.");
+            } else if (phone.length < 10) {
+                alert("Please enter a valid phone number.");
+            } else {
+                alert("Thank you! Your message has been sent.");
+                document.getElementById("thankyou").style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
