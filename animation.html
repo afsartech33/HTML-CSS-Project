@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 50px auto;
+            transition: transform 0.5s scale(2);
+            animation: name 2s infinite alternate 
+        }
+        .box:hover{
+            transform: scale(1.5) rotate(20deg);
+            background-color: red;
+        }
+        @keyframes name{
+            
+        }
+    </style>
