@@ -1,64 +1,77 @@
-* {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #b5e2eb7a;
+}
+.container{
+    display: flex;
+    padding: 100px;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+.left-section{
+    max-width: 500px;
+}
+.left-section h1{
+    color: #61230d;
+    font-size: 40px;
+    font-weight: bolder;
 
-    body {
-      background: rgb(232, 229, 226);
-      font-family: Arial, sans-serif;
-    }
-
-    form {
-      width: 400px;
-      margin: 20vh auto 0 auto;
-      background-color: rgb(169, 165, 165);
-      border-radius: 5px;
-      padding: 30px;
-    }
-
-    h1 {
-      text-align: center;
-      color: #0c0c0c;
-      margin-bottom: 15px;
-    }
-
-    #form_button {
-      background-color: aquamarine;
-      color: rgb(90, 74, 124);
-      padding: 10px;
-      margin: 20px 0;
-      width: 100%;
-      border: 1px solid #0c0c0c; /* fixed typo */
-      font-size: 20px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    .input-group {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 15px;
-    }
-
-    .input-group input {
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
-      font-size: 20px;
-      border: 1px solid #0c0c0c;
-    }
-
-    .input-group label {
-      font-size: 25px;
-    }
-
-    .input-group input:focus {
-      outline: 0;
-    }
-
-    .input-group .msg {
-      color: red;
-      font-size: 15px;
-      margin-top: 5px;
-    }
+}
+.left-section p{
+    color: #171717;
+    font-size: 20px;
+}
+.right-section{
+    width: 400px;
+    padding: 40px;
+    background-color: rgb(24,68,46);
+    border-radius: 10px;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+.input{
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #61250d;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.login{
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #5268e4;
+    border: none;
+    color:white;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.forgot{
+    color:#e8ecf1;
+    font-size: 14px;
+    text-align: center;
+    align-items: center;
+    margin: 10px 0;
+    display: block;
+}
+hr{
+    margin: 10px 0;
+    height: 1px;
+}
+.create{
+    display: block;
+    padding: 15px;
+    background-color: #067394;
+    color: white; 
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;  
+}
